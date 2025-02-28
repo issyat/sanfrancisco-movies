@@ -1,14 +1,12 @@
-import { useEffect, useState } from 'react';
-import moviesData from '../data.json'
 import { Grid2 as Grid, List, ListItem, ListItemButton, TextField } from '@mui/material';
 
 
-const Search = ({ onItemSelect, searchTerm, searchResults, handleChange }:any) => {
+const Search = ({ onItemSelect, searchTerm, searchResults, handleChange }: any) => {
 
 
 
     return (
-        <Grid>
+        <Grid display={"flex"} flexDirection={"column"} justifyContent={"center"} alignItems={"center"}>
             <TextField
                 id="outlined-basic"
                 label="Movies"
@@ -17,15 +15,17 @@ const Search = ({ onItemSelect, searchTerm, searchResults, handleChange }:any) =
                 placeholder="Search"
                 value={searchTerm}
                 onChange={handleChange}
+                sx={{ width: '100%' }}
             />
-
-            <List sx={{overflowY: 'auto', maxHeight: '100vh'}}>
-                {searchResults.map((item:any, index:number) => (
-                    <ListItem onClick={() => onItemSelect(item)}>
-                        <ListItemButton key={index}>{item.title}</ListItemButton>
-                    </ListItem>
-                ))}
-            </List>
+            <Grid sx={{overflowY: 'auto', maxHeight: '100vh', width: '100%'}}>
+                <List sx={{ width: '100%' }}>
+                    {searchResults.map((item: any, index: number) => (
+                        <ListItem onClick={() => onItemSelect(item)}>
+                            <ListItemButton key={index}>{item.title}</ListItemButton>
+                        </ListItem>
+                    ))}
+                </List>
+            </Grid>
         </Grid>
     );
 }
