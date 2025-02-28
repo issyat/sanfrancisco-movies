@@ -1,6 +1,5 @@
 import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
-import '../assets/styles/map.css'
 import moviesData from '../data.json'
 import { Grid2 as Grid, Typography } from '@mui/material';
 import Search from './Search';
